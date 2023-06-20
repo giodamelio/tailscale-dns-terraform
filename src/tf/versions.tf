@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "terraform-state-gio-ninja"
-    key    = "state"
+    key    = "dns-state"
     region = "us-west-2"
   }
 
