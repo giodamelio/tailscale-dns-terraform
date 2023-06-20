@@ -1,4 +1,10 @@
 terraform {
+  backend "s3" {
+    bucket = "terraform-state-gio-ninja"
+    key    = "state"
+    region = "us-west-2"
+  }
+
   required_providers {
     tailscale = {
       source  = "tailscale/tailscale"
