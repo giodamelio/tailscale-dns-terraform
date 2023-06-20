@@ -3,3 +3,4 @@
 .env
 *.tfstate
 *.tfstate.backup
+tailscale-dns-terraform
