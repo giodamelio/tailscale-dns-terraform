@@ -1,5 +1,6 @@
 provider "tailscale" {
   tailnet = var.tailnet
+  scopes  = ["read:all"]
 }
 
 provider "aws" {
