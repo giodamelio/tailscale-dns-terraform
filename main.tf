@@ -1,6 +1,6 @@
 data "tailscale_devices" "all" {}
 
-data "aws_route53_zone" "gio_ninja" {
+data "aws_route53_zone" "zone" {
   zone_id = var.route53_zone_id
 }
 
@@ -25,7 +25,7 @@ resource "aws_route53_record" "a_record" {
   for_each = local.a_records
 
   zone_id = var.route53_zone_id
-  name    = "${each.key}.${data.aws_route53_zone.gio_ninja.name}"
+  name    = "${each.key}.${data.aws_route53_zone.zone.name}"
   type    = "A"
   ttl     = 60
   records = each.value
@@ -35,7 +35,7 @@ resource "aws_route53_record" "aaaa_record" {
   for_each = local.aaaa_records
 
   zone_id = var.route53_zone_id
-  name    = "${each.key}.${data.aws_route53_zone.gio_ninja.name}"
+  name    = "${each.key}.${data.aws_route53_zone.zone.name}"
   type    = "AAAA"
   ttl     = 60
   records = each.value
